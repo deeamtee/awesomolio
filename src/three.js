@@ -13,13 +13,13 @@ scene.add(camera);
 
 const canvas = document.getElementById('avatar3d');
 const renderer = new THREE.WebGL1Renderer({ alpha: true, antialias: true, canvas });
-renderer.setSize(sizes.width/ 1.5, sizes.height / 1.5);
+renderer.setSize(sizes.width/ 1.3, sizes.height / 1.3);
 
 const loader = new GLTFLoader();
 
 loader.load(avatar3d, (model) => {
-    model.scene.position.y = -0.95;
-    model.scene.scale.set(0.95, 0.95, 0.95)
+    model.scene.position.y = -0.8;
+    model.scene.scale.set(0.83, 0.83, 0.83)
     scene.add(model.scene)
 })
 
