@@ -86,7 +86,8 @@ img {
   object-fit: cover;
 }
 .home__canvas {
-  right: -225px;
+  transform: translateX(220px);
+  right: 0;
   top: 200px;
   position: absolute;
 };
