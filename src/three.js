@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import avatar3d from '/avatar3d.glb';
 
 const scene = new THREE.Scene();
 
@@ -12,11 +13,11 @@ scene.add(camera);
 
 const canvas = document.getElementById('avatar3d');
 const renderer = new THREE.WebGL1Renderer({ alpha: true, antialias: true, canvas });
-renderer.setSize(sizes.width/1.5, sizes.height /1.5);
+renderer.setSize(sizes.width/ 1.5, sizes.height / 1.5);
 
 const loader = new GLTFLoader();
 
-loader.load('../avatar3d.glb', (model) => {
+loader.load(avatar3d, (model) => {
     model.scene.position.y = -0.95;
     model.scene.scale.set(0.95, 0.95, 0.95)
     scene.add(model.scene)
