@@ -25,6 +25,7 @@ body {
 
   font-style: normal;
   line-height: normal;
+  overflow: hidden;
 }
 
 h1, h2, h3,h4, h5, h6, p, button {
@@ -35,6 +36,11 @@ h1, h2, h3,h4, h5, h6, p, button {
 img {
   font-size: 0;
   line-height: 0;
+}
+
+#avatar3d {
+  margin: 0;
+  padding: 0;
 }
 
 .page {
@@ -79,10 +85,16 @@ img {
   width: 449px;
   object-fit: cover;
 }
+.home__canvas {
+  right: -225px;
+  top: 200px;
+  position: absolute;
+};
 
 .home__container {
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 
 .home__headings-box {
