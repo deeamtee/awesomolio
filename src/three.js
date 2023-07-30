@@ -16,7 +16,7 @@ renderer.setSize(sizes.width/1.5, sizes.height /1.5);
 
 const loader = new GLTFLoader();
 
-loader.load('../resources/avatar3d.glb', (model) => {
+loader.load('../avatar3d.glb', (model) => {
     model.scene.position.y = -0.95;
     model.scene.scale.set(0.95, 0.95, 0.95)
     scene.add(model.scene)
