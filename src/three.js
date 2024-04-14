@@ -12,9 +12,7 @@ camera.position.set(0,0.8,2);
 
 scene.add(camera);
 
-// const canvas = document.getElementById('avatar3d');
 const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-// renderer.setSize(sizes.width/ 1.3, sizes.height / 1.3);
 const canvas = renderer.domElement;
 container.append(canvas);
 
@@ -49,12 +47,12 @@ function animate () {
 animate();
 
 function onWindowResize() {
-    const width = container.clientWidth - window.innerWidth/10;
-    const height = window.innerHeight / 1.3; // или другой подходящий размер
+    const width = container.clientWidth * 0.9;
+    const height = container.clientHeight;
 
     camera.aspect = width / height;
-    camera.updateProjectionMatrix();
     renderer.setSize(width, height);
+    camera.updateProjectionMatrix();
 }
 
 window.addEventListener('resize', onWindowResize, false);
