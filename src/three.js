@@ -4,6 +4,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import avatar3d from '/avatar3d.glb';
 
 const scene = new THREE.Scene();
+const container = document.getElementById('3d-model-container');
 
 const sizes = { width: window.innerWidth, height: window.innerHeight }
 const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 1000);
@@ -11,9 +12,11 @@ camera.position.set(0,0.8,2);
 
 scene.add(camera);
 
-const canvas = document.getElementById('avatar3d');
-const renderer = new THREE.WebGL1Renderer({ alpha: true, antialias: true, canvas });
-renderer.setSize(sizes.width/ 1.3, sizes.height / 1.3);
+// const canvas = document.getElementById('avatar3d');
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+// renderer.setSize(sizes.width/ 1.3, sizes.height / 1.3);
+const canvas = renderer.domElement;
+container.append(canvas);
 
 const loader = new GLTFLoader();
 
@@ -44,3 +47,15 @@ function animate () {
 }
 
 animate();
+
+function onWindowResize() {
+    const width = container.clientWidth - window.innerWidth/10;
+    const height = window.innerHeight / 1.3; // или другой подходящий размер
+
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height);
+}
+
+window.addEventListener('resize', onWindowResize, false);
+window.addEventListener('load', onWindowResize, false);
